@@ -1,50 +1,86 @@
-body {
-    background: linear-gradient(90deg, rgba(2, 0, 36, 1) 0%, rgba(9, 9, 121, 1) 25%, rgba(0, 212, 255, 1) 50%, rgba(255, 0, 128, 1) 75%, rgba(255, 255, 0, 1) 100%);
-    background-size: 500% 100%;
-    animation: gradientAnimation 8s ease infinite;
-  }
-  
-  @keyframes gradientAnimation {
-    0% {
-      background-position: 0 0;
-    }
-    50% {
-      background-position: 100% 0;
-    }
-    100% {
-      background-position: 0 0;
-    }
-  }
-  
-
-.container {
-    position: absolute;
+/* import poppins */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+*
+{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+  color: #FFF;
+}
+html {
+  background: #000;
+  scroll-behavior: smooth;
+  background-image: url("background.jpg");
+}
+.black
+{
+  color: #000;
+}
+@keyframes container
+{
+  0%
+  {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(0.5);
+    filter: blur(25px);
     top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    background-color: white;
-    width: 400px;
-    padding: 40px;
-    border-radius: 10px;
-    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.2);
-    text-align: center;
+  }
+  50%
+  {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+    filter: blur(0px);
+    top: 50%;
+  }
+  100%
+  {
+    opacity: 1;
+    top: 10%;
+  }
 }
-
-.container a {
-    display: inline-block;
-    margin: 10px;
+@keyframes videofade {
+  0% {
+    opacity: 0;
+    filter: blur(15px);
+  }
+  100% {
+    opacity: 1;
+    filter: blur(0px);
+  }
 }
-
-.container img {
-    width: 50px;
-    height: 50px;
-    object-fit: cover;
-    border-radius: 50%;
-    box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.2);
+.container
+{
+  animation: container 3s cubic-bezier(0.785, 0.135, 0.15, 0.86) forwards;
+  filter: blur(0px);
+  opacity: 0;
+  animation-delay: 2s;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: #ffffff00;
+  text-align: center;
+  border-radius: 15px;
+  border: 5px solid #ffffff;
+  width: 500px;
+  height: 250px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+  backdrop-filter: blur(25px);
+  
 }
-
-.container p {
-    color: #555;
-    font-size: 18px;
-    margin-top: 20px;
+#myVideo {
+  animation: videofade 5s cubic-bezier(0.075, 0.82, 0.165, 1) forwards;
+  animation-delay: 1s;
+  position: fixed;
+  opacity: 0;
+  right: 0;
+  bottom: 0;
+  min-width: 100%; 
+  min-height: 100%;
+  animation-fill-mode: forwards;
+  z-index: -1;
 }
